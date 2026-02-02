@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Winamp Podcast Clone</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="fontawesome/css/all.min.css" />
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar" aria-label="Sidebar">
+      <div class="logo">
+        <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+        <span class="brand">winamp</span>
+      </div>
+
+      <nav>
+        <p class="nav-title">MENU</p>
+        <ul class="nav-list">
+          <li><i class="fa-solid fa-compass" aria-hidden="true"></i><span>Explore</span></li>
+          <li><i class="fa-solid fa-book" aria-hidden="true"></i><span>Local Libraries</span></li>
+          <li class="active"><i class="fa-solid fa-microphone" aria-hidden="true"></i><span>Podcasts</span></li>
+          <li><i class="fa-solid fa-heart" aria-hidden="true"></i><span>Favorites</span></li>
+        </ul>
+
+        <p class="nav-title">PLAYLISTS</p>
+        <ul class="nav-list">
+          <li><i class="fa-solid fa-plus" aria-hidden="true"></i><span>Create New</span></li>
+          <li><i class="fa-solid fa-music" aria-hidden="true"></i><span>Mixes United</span></li>
+          <li><i class="fa-solid fa-music" aria-hidden="true"></i><span>Foreign Music</span></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="content">
+      <header class="top-bar" role="banner">
+        <div class="search-box" role="search">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <input type="text" placeholder="Search anything" aria-label="Search" />
+        </div>
+
+        <div class="user-actions" aria-label="User actions">
+          <div class="action-item"><i class="fa-solid fa-crown" aria-hidden="true"></i><span>GOPRO</span></div>
+          <div class="action-item"><i class="fa-solid fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Update</span></div>
+          <div class="action-item"><i class="fa-solid fa-gear" aria-hidden="true"></i><span>Settings</span></div>
+          <div class="action-item"><i class="fa-solid fa-circle-user" aria-hidden="true"></i><span>Account</span></div>
+        </div>
+      </header>
+
+      <section class="hero-banner" aria-label="Hero">
+        <div class="hero-text">
+          <span class="subtitle">Early Morning talk</span>
+          <h1 class="title">Vanilla Breakfast</h1>
+          <p class="description">Join Mini Diamond as she talks about relationships, love, and music.</p>
+          <div class="hero-stats" aria-hidden="true">
+            <span><i class="fa-solid fa-users"></i> 2.3M subscribers</span>
+            <span><i class="fa-solid fa-heart"></i> 999K Likes</span>
+          </div>
+        </div>
+
+        <div class="hero-image">
+          <img src="images/image6.jpg" alt="Host image" />
+        </div>
+      </section>
+
+      <section class="trending-section" aria-label="Trending">
+        <div class="section-header">
+          <h2>Discover Trending Songs</h2>
+        </div>
+
+        <nav class="genre-nav" aria-label="Genres">
+          <button class="genre-item">Contemporary</button>
+          <button class="genre-item active" aria-current="true">Afrobeats</button>
+          <button class="genre-item">Country</button>
+          <button class="genre-item">Hip Hop</button>
+          <button class="genre-item">Classical</button>
+          <button class="genre-item">Instrumentals</button>
+        </nav>
+
+        <div class="trending-grid">
+          <div class="song-card"><img src="images/image2.jpg" alt="Song" /></div>
+          <div class="song-card"><img src="images/image5.jpg" alt="Song" /></div>
+          <div class="song-card"><img src="images/image4.jpg" alt="Song" /></div>
+          <div class="song-card"><img src="images/image5.jpg" alt="Song" /></div>
+          <div class="song-card"><img src="images/image3.jpg" alt="Song" /></div>
+        </div>
+      </section>
+
+      <!-- Podcast list / episodes -->
+      <section class="podcast-section" aria-label="Podcasts">
+        <div class="section-header">
+          <h2>Episodes</h2>
+          <p class="section-sub">Latest episodes from Vanilla Breakfast</p>
+        </div>
+
+        <div class="episodes-grid" id="episodes">
+          <!-- Episode cards are also present in the markup so users without JS can see them.
+               The play buttons are wired by JS below. -->
+          <article class="episode-card" data-src="audio/episode1.mp3" data-title="Episode 1 — Love & Mornings">
+            <img class="episode-art" src="images/image3.jpg" alt="Episode 1 artwork" />
+            <div class="episode-meta">
+              <h3 class="episode-title">Episode 1 — Love & Mornings</h3>
+              <p class="episode-desc">Mini Diamond discusses the small things that matter early in a relationship.</p>
+              <div class="episode-actions">
+                <button class="btn-play" aria-label="Play Episode 1"><i class="fa-solid fa-play"></i> Play</button>
+                <span class="episode-duration">24:15</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="episode-card" data-src="audio/episode2.mp3" data-title="Episode 2 — Communicating Better">
+            <img class="episode-art" src="images/image4.jpg" alt="Episode 2 artwork" />
+            <div class="episode-meta">
+              <h3 class="episode-title">Episode 2 — Communicating Better</h3>
+              <p class="episode-desc">Strategies to talk openly about feelings without drama.</p>
+              <div class="episode-actions">
+                <button class="btn-play" aria-label="Play Episode 2"><i class="fa-solid fa-play"></i> Play</button>
+                <span class="episode-duration">31:02</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="episode-card" data-src="audio/episode3.mp3" data-title="Episode 3 — Music & Memories">
+            <img class="episode-art" src="images/image5.jpg" alt="Episode 3 artwork" />
+            <div class="episode-meta">
+              <h3 class="episode-title">Episode 3 — Music & Memories</h3>
+              <p class="episode-desc">How songs tie to life events and healing through playlists.</p>
+              <div class="episode-actions">
+                <button class="btn-play" aria-label="Play Episode 3"><i class="fa-solid fa-play"></i> Play</button>
+                <span class="episode-duration">28:47</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Sticky audio player -->
+  <div class="player" id="player" aria-label="Audio player" role="region">
+    <div class="player-left">
+      <img id="player-art" src="images/image3.jpg" alt="Now playing artwork" />
+      <div class="player-info">
+        <div id="player-title" class="player-title">Not playing</div>
+        <div id="player-sub" class="player-sub">—</div>
+      </div>
+    </div>
+
+    <div class="player-center">
+      <div class="player-controls">
+        <button id="prevBtn" class="control-btn" aria-label="Previous"><i class="fa-solid fa-backward-step"></i></button>
+        <button id="playBtn" class="control-btn" aria-label="Play"><i class="fa-solid fa-play" id="playIcon"></i></button>
+        <button id="nextBtn" class="control-btn" aria-label="Next"><i class="fa-solid fa-forward-step"></i></button>
+      </div>
+
+      <div class="progress-wrap" aria-hidden="false">
+        <input id="progress" type="range" min="0" max="100" value="0" />
+        <div class="time">
+          <span id="currentTime">0:00</span>
+          <span id="duration">0:00</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="player-right">
+      <button id="volumeBtn" class="control-btn" aria-label="Mute/Unmute"><i class="fa-solid fa-volume-high"></i></button>
+    </div>
+
+    <audio id="audio" preload="metadata"></audio>
+  </div>
+
+  <!-- Minimal JS to power the player -->
+  <script>
+    (function () {
+      const audio = document.getElementById('audio');
+      const playBtn = document.getElementById('playBtn');
+      const playIcon = document.getElementById('playIcon');
+      const progress = document.getElementById('progress');
+      const currentTimeEl = document.getElementById('currentTime');
+      const durationEl = document.getElementById('duration');
+      const playerTitle = document.getElementById('player-title');
+      const playerArt = document.getElementById('player-art');
+      const episodes = Array.from(document.querySelectorAll('.episode-card'));
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const player = document.getElementById('player');
+
+      let currentIndex = -1;
+      let isPlaying = false;
+
+      function formatTime(s) {
+        if (isNaN(s)) return '0:00';
+        const m = Math.floor(s / 60);
+        const sec = Math.floor(s % 60).toString().padStart(2, '0');
+        return m + ':' + sec;
+      }
+
+      function loadEpisode(index) {
+        if (index < 0 || index >= episodes.length) return;
+        const ep = episodes[index];
+        const src = ep.dataset.src;
+        const title = ep.dataset.title || ep.querySelector('.episode-title').textContent;
+        const art = ep.querySelector('.episode-art')?.src || 'images/image3.jpg';
+
+        audio.src = src;
+        playerTitle.textContent = title;
+        playerArt.src = art;
+        currentIndex = index;
+
+        // auto play when loaded metadata
+        audio.addEventListener('loadedmetadata', () => {
+          durationEl.textContent = formatTime(audio.duration);
+          progress.max = Math.floor(audio.duration);
+          play();
+        }, { once: true });
+      }
+
+      function play() {
+        audio.play().then(() => {
+          isPlaying = true;
+          playIcon.className = 'fa-solid fa-pause';
+        }).catch((e) => {
+          // play blocked or error
+          console.warn('Play failed', e);
+        });
+      }
+
+      function pause() {
+        audio.pause();
+        isPlaying = false;
+        playIcon.className = 'fa-solid fa-play';
+      }
+
+      playBtn.addEventListener('click', () => {
+        if (!audio.src && episodes.length) {
+          loadEpisode(0);
+          return;
+        }
+        if (isPlaying) pause(); else play();
+      });
+
+      // episode play buttons
+      document.querySelectorAll('.btn-play').forEach((btn, i) => {
+        btn.addEventListener('click', (e) => {
+          const cardIndex = episodes.indexOf(btn.closest('.episode-card'));
+          if (cardIndex === currentIndex) {
+            // toggle play/pause
+            if (isPlaying) pause(); else play();
+          } else {
+            loadEpisode(cardIndex);
+          }
+        });
+      });
+
+      audio.addEventListener('timeupdate', () => {
+        currentTimeEl.textContent = formatTime(audio.currentTime);
+        progress.value = Math.floor(audio.currentTime);
+      });
+
+      progress.addEventListener('input', (e) => {
+        audio.currentTime = e.target.value;
+      });
+
+      nextBtn.addEventListener('click', () => {
+        const next = (currentIndex + 1) % episodes.length;
+        loadEpisode(next);
+      });
+
+      prevBtn.addEventListener('click', () => {
+        const prev = (currentIndex - 1 + episodes.length) % episodes.length;
+        loadEpisode(prev);
+      });
+
+      audio.addEventListener('ended', () => {
+        // auto next
+        const next = (currentIndex + 1) % episodes.length;
+        loadEpisode(next);
+      });
+
+      // basic keyboard accessibility: space toggles play/pause when focused on player
+      player.addEventListener('keydown', (e) => {
+        if (e.code === 'Space') {
+          e.preventDefault();
+          if (isPlaying) pause(); else play();
+        }
+      });
+
+      // initialize duration placeholder
+      durationEl.textContent = '0:00';
+    })();
+  </script>
+</body>
+</html>

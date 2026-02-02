@@ -1,0 +1,147 @@
+/* Basic reset and variables */
+:root{
+  --bg:#0f1115;
+  --panel:#0b1220;
+  --muted:#9aa4b2;
+  --accent:#ffcc00;
+  --surface:#0d1520;
+  --glass: rgba(255,255,255,0.03);
+  --card:#0b1622;
+  --radius:10px;
+  --gap:18px;
+  --text:#e6eef6;
+  --max-width:1200px;
+  --player-height:84px;
+  font-family: Inter, "Segoe UI", Roboto, system-ui, -apple-system, "Helvetica Neue", Arial;
+  color-scheme: dark;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body,#root{height:100%}
+body{
+  background: linear-gradient(180deg,#07101a 0%, #081119 100%);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding-bottom: calc(var(--player-height) + 12px); /* space for sticky player */
+}
+
+/* Layout */
+.container{
+  display:flex;
+  max-width:var(--max-width);
+  margin:28px auto;
+  gap:var(--gap);
+  padding:0 16px;
+}
+
+/* Sidebar */
+.sidebar{
+  width:220px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  border-radius:12px;
+  padding:18px;
+  flex-shrink:0;
+  height:calc(100vh - 56px);
+  overflow:auto;
+  border:1px solid rgba(255,255,255,0.03);
+}
+
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;margin-bottom:14px;font-size:1.1rem}
+.logo .fa-bolt{color:var(--accent)}
+
+.nav-title{font-size:0.75rem;color:var(--muted);margin:12px 0 8px}
+.nav-list{list-style:none;display:block}
+.nav-list li{display:flex;align-items:center;gap:12px;padding:10px;border-radius:8px;cursor:pointer;color:var(--muted)}
+.nav-list li:hover{background:var(--glass);color:var(--text)}
+.nav-list li.active{background:linear-gradient(90deg, rgba(255,204,0,0.08), transparent);color:var(--accent)}
+
+/* Content */
+.content{flex:1}
+.top-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.search-box{display:flex;align-items:center;gap:10px;background:var(--glass);padding:10px 12px;border-radius:999px;width:min(460px,60%);}
+.search-box input{background:transparent;border:0;color:var(--text);outline: none;width:100%}
+.user-actions{display:flex;gap:8px;align-items:center}
+.action-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;background:transparent;color:var(--muted);font-weight:600}
+.action-item:hover{background:var(--glass);color:var(--text)}
+
+/* Hero */
+.hero-banner{display:flex;align-items:center;gap:20px;background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent);padding:18px;border-radius:12px;margin-bottom:18px}
+.hero-text{flex:1}
+.subtitle{display:inline-block;color:var(--muted);margin-bottom:6px}
+.title{font-size:1.8rem;margin:6px 0}
+.description{color:var(--muted);margin-bottom:12px}
+.hero-image img{width:160px;height:160px;object-fit:cover;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+
+/* Trending */
+.trending-section{margin-bottom:18px}
+.genre-nav{display:flex;gap:10px;margin:12px 0 18px;flex-wrap:wrap}
+.genre-item{background:transparent;color:var(--muted);padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,0.02);cursor:pointer}
+.genre-item.active{background:rgba(255,204,0,0.08);color:var(--accent);border-color:rgba(255,204,0,0.12)}
+.trending-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px}
+.song-card img{width:100%;height:100%;object-fit:cover;border-radius:10px}
+
+/* Episodes */
+.podcast-section{margin-top:10px}
+.section-header + .episodes-grid{margin-top:12px}
+.episodes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.episode-card{display:flex;gap:12px;padding:12px;background:var(--card);border-radius:12px;border:1px solid rgba(255,255,255,0.03);align-items:center}
+.episode-art{width:86px;height:86px;border-radius:8px;object-fit:cover;flex-shrink:0}
+.episode-meta{flex:1}
+.episode-title{font-size:1rem;margin-bottom:6px}
+.episode-desc{color:var(--muted);font-size:0.9rem;margin-bottom:8px}
+.episode-actions{display:flex;align-items:center;gap:10px}
+.btn-play{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;background:var(--accent);color:#081018;border:0;cursor:pointer;font-weight:700}
+.btn-play .fa-play{font-size:0.9rem}
+.episode-duration{color:var(--muted);font-size:0.9rem}
+
+/* Player (sticky bottom) */
+.player{
+  position:fixed;
+  left:16px;
+  right:16px;
+  bottom:12px;
+  height:var(--player-height);
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px;
+  border:1px solid rgba(255,255,255,0.04);
+  backdrop-filter: blur(6px);
+  z-index:999;
+}
+
+.player-left{display:flex;align-items:center;gap:12px;min-width:180px}
+.player-left img{width:56px;height:56px;border-radius:8px;object-fit:cover}
+.player-title{font-weight:700}
+.player-sub{color:var(--muted);font-size:0.9rem}
+
+/* center controls */
+.player-center{flex:1;display:flex;flex-direction:column;gap:6px;min-width:420px}
+.player-controls{display:flex;gap:10px;align-items:center;justify-content:center}
+.control-btn{background:transparent;border:0;color:var(--muted);font-size:1.05rem;padding:8px;border-radius:8px;cursor:pointer}
+.control-btn:hover{color:var(--text);background:var(--glass)}
+.progress-wrap{display:flex;flex-direction:column;gap:6px;padding:0 8px}
+.progress-wrap input[type="range"]{width:100%;appearance:none;background:transparent;cursor:pointer}
+.progress-wrap input[type="range"]::-webkit-slider-runnable-track{height:6px;background:rgba(255,255,255,0.06);border-radius:6px}
+.progress-wrap input[type="range"]::-webkit-slider-thumb{appearance:none;width:14px;height:14px;border-radius:50%;background:var(--accent);margin-top:-4px}
+
+/* right */
+.player-right{display:flex;align-items:center;gap:8px;min-width:80px;justify-content:flex-end}
+
+/* Responsive */
+@media (max-width: 960px){
+  .container{padding:0 12px}
+  .sidebar{display:none}
+  .player{left:8px;right:8px}
+  .player-center{min-width:0}
+}
+
+@media (max-width:640px){
+  .hero-banner{flex-direction:column;align-items:flex-start}
+  .hero-image img{width:100%;height:auto}
+  .episodes-grid{grid-template-columns:1fr}
+  .player{left:8px;right:8px;padding:10px}
+}
