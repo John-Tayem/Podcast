@@ -59,7 +59,7 @@ body{
 /* Content */
 .content{flex:1}
 .top-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
-.search-box{display:flex;align-items:center;gap:10px;background:var(--glass);padding:10px 12px;border-radius:999px;width:min(460px,60%);}
+.search-box{display:flex;align-items:center;gap:10px;background:var(--glass);padding:10px 12px;border-radius:999px;width:min(460px,60%);} 
 .search-box input{background:transparent;border:0;color:var(--text);outline: none;width:100%}
 .user-actions{display:flex;gap:8px;align-items:center}
 .action-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;background:transparent;color:var(--muted);font-weight:600}
@@ -71,7 +71,11 @@ body{
 .subtitle{display:inline-block;color:var(--muted);margin-bottom:6px}
 .title{font-size:1.8rem;margin:6px 0}
 .description{color:var(--muted);margin-bottom:12px}
-.hero-image img{width:160px;height:160px;object-fit:cover;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+/* Apply same styling for images and video in hero */
+.hero-image img,
+.hero-image video{
+  width:160px;height:160px;object-fit:cover;border-radius:12px;border:1px solid rgba(255,255,255,0.03);display:block;background:#000;
+}
 
 /* Trending */
 .trending-section{margin-bottom:18px}
@@ -141,7 +145,8 @@ body{
 
 @media (max-width:640px){
   .hero-banner{flex-direction:column;align-items:flex-start}
-  .hero-image img{width:100%;height:auto}
+  .hero-image img,
+  .hero-image video{width:100%;height:auto}
   .episodes-grid{grid-template-columns:1fr}
   .player{left:8px;right:8px;padding:10px}
 }
